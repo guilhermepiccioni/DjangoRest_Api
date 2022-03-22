@@ -38,8 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # apps locally
-    'api_rest',
     'rest_framework',
+    'rest_framework.authtoken',
+    'api_rest',
 ]
 
 MIDDLEWARE = [
@@ -123,11 +124,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
-DJANGO_SUPERUSER_USERNAME = 'guilherme'
-DJANGO_SUPERUSER_EMAIL = 'exemplo@exemplo.com'
-DJANGO_SUPERUSER_PASSWORD = '1234'
-
 
 AUTH_USER_MODEL = 'api_rest.UserProfile'
 
