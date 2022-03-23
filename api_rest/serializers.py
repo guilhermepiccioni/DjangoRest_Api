@@ -8,7 +8,6 @@ class HelloSerializer(serializers.Serializer):
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    """"""
 
     class Meta:
         model = models.UserProfile
@@ -21,7 +20,6 @@ class UserProfileSerializer(serializers.ModelSerializer):
         }
 
     def create(self, validate_data):
-        """"""
         user = models.UserProfile.objects.create_user(
             email=validate_data['email'],
             name=validate_data['name'],

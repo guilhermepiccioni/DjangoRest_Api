@@ -7,7 +7,6 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
 
 from . import serializers, models, permissions
-from .serializers import UserProfileSerializer
 
 
 class HelloApiView(APIView):
@@ -55,12 +54,10 @@ class HelloViewSet(viewsets.ViewSet):
     serializer_class = serializers.HelloSerializer
 
     def list(self, request):
-        """"""
         a_viewset = ['uses actions to create, update, partially update']
         return Response({'message': 'hello', 'a_viewset': a_viewset})
 
     def create(self, request):
-        """"""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             name = serializer.validated_data.get('name')
@@ -78,20 +75,16 @@ class HelloViewSet(viewsets.ViewSet):
         return Response({'http_method': 'GET'})
 
     def update(self, request, pk=None):
-        """"""
         return Response({'http_method': 'PUT'})
 
     def partial_update(self, request, pk=None):
-        """"""
         return Response({'http_method': 'PATCH'})
 
     def destroy(self, request, pk=None):
-        """"""
         return Response({'http_method': 'DELETE'})
 
 
 class UserProfileViewset(viewsets.ModelViewSet):
-    """"""
     serializer_class = serializers.UserProfileSerializer
     queryset = models.UserProfile.objects.all()
     filter_backends = (filters.SearchFilter,)
@@ -101,7 +94,6 @@ class UserProfileViewset(viewsets.ModelViewSet):
 
 
 class UserLoginApiView(ObtainAuthToken):
-    """Handle """
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
 
 
