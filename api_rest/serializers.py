@@ -2,9 +2,10 @@ from rest_framework import serializers
 from . import models
 
 
-class HelloSerializer(serializers.Serializer):
-    """Serializes a name field for testing our serializer"""
-    name = serializers.CharField(max_length=10)
+class UserTestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserTest
+        fields = ('id', 'name', 'surname')
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
